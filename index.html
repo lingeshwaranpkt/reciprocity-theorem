@@ -84,6 +84,10 @@
 </style>
 </head>
 <body>
+<div style="text-align:center; padding:30px 20px; background:linear-gradient(135deg, #667eea 0%, #764ba2 100%); color:white;">
+  <h1 style="margin:0; font-size:2.5rem; font-weight:bold;">Reciprocity Theorem Demonstration</h1>
+  <p style="margin:10px 0 0 0; font-size:1.1rem; opacity:0.9;">Interactive Circuit Analysis Tool</p>
+</div>
 <div class="container">
   <!-- Circuit 1 -->
   <div class="circuit">
@@ -159,8 +163,8 @@
           <th>Input Voltage<br>Vs (Volt)</th>
           <th>Is (mA)<br>Practical</th>
           <th>Is (mA)<br>Theoretical</th>
-          <th>Req (kΩ)<br>Practical</th>
-          <th>Req (kΩ)<br>Theoretical</th>
+          <th>Raa (kΩ)<br>Practical</th>
+          <th>Raa (kΩ)<br>Theoretical</th>
         </tr>
       </thead>
       <tbody>
@@ -243,8 +247,8 @@
           <th>Input Voltage<br>Vs (Volt)</th>
           <th>Is (mA)<br>Practical</th>
           <th>Is (mA)<br>Theoretical</th>
-          <th>Req (kΩ)<br>Practical</th>
-          <th>Req (kΩ)<br>Theoretical</th>
+          <th>Rbb (kΩ)<br>Practical</th>
+          <th>Rbb (kΩ)<br>Theoretical</th>
         </tr>
       </thead>
       <tbody>
@@ -258,6 +262,50 @@
   <label for="vs">Input Voltage (Vs) (Volt): </label>
   <input type="number" id="vs" step="0.1" value="10" class="input-box">
   <button onclick="calculate()">Calculate</button>
+</div>
+
+<div style="max-width:1100px; margin:40px auto; padding:30px; background:#fff; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,.1);">
+  <h2 style="color:#2980b9; text-align:center; margin-bottom:20px;">Understanding the Reciprocity Theorem</h2>
+  
+  <div style="line-height:1.8; color:#333;">
+    <h3 style="color:#e74c3c; margin-top:20px;">What is the Reciprocity Theorem?</h3>
+    <p>The <strong>Reciprocity Theorem</strong> states that in any linear bilateral network, if a voltage source in one branch produces a certain current in another branch, then moving the voltage source to the second branch will produce the same current in the first branch.</p>
+    
+    <h3 style="color:#e74c3c; margin-top:25px;">Key Principles:</h3>
+    <ul style="margin-left:20px;">
+      <li><strong>Position Exchange:</strong> The voltage source (Vs) and ammeter (A) positions are swapped between Figure 2 and Figure 3</li>
+      <li><strong>Same Current:</strong> Despite the position swap, the current measured by the ammeter remains identical in both configurations</li>
+      <li><strong>Linear Network:</strong> The theorem applies only to linear, bilateral networks with resistive elements</li>
+      <li><strong>Equivalent Resistance:</strong> Both circuits have the same equivalent resistance (Req = 4.167 kΩ)</li>
+    </ul>
+    
+    <h3 style="color:#e74c3c; margin-top:25px;">Circuit Configuration:</h3>
+    <p>The circuit consists of resistors Raa (in Figure 2) and Rbb (in Figure 3) arranged in a T-network. The equivalent resistance seen by the voltage source is:</p>
+    <p style="text-align:center; font-weight:bold; background:#f0f8ff; padding:15px; border-radius:5px; margin:15px 0;">
+      Req = 4.167 kΩ
+    </p>
+    
+    <h3 style="color:#e74c3c; margin-top:25px;">Verification:</h3>
+    <p>You can verify the reciprocity theorem by observing that:</p>
+    <ul style="margin-left:20px;">
+      <li>For Vs = 10V: Current Is = 2.400 mA in <strong>both</strong> circuits</li>
+      <li>For Vs = 5V: Current Is = 1.200 mA in <strong>both</strong> circuits</li>
+      <li>For Vs = 15V: Current Is = 3.600 mA in <strong>both</strong> circuits</li>
+      <li>For Vs = 20V: Current Is = 4.800 mA in <strong>both</strong> circuits</li>
+    </ul>
+    
+    <h3 style="color:#e74c3c; margin-top:25px;">Practical Applications:</h3>
+    <ul style="margin-left:20px;">
+      <li><strong>Network Analysis:</strong> Simplifies complex circuit calculations</li>
+      <li><strong>Antenna Theory:</strong> Transmitting and receiving characteristics are reciprocal</li>
+      <li><strong>Filter Design:</strong> Input-output relationships remain symmetric</li>
+      <li><strong>Testing:</strong> Allows flexible measurement configurations</li>
+    </ul>
+    
+    <div style="background:#e8f4fc; padding:20px; border-left:4px solid #2980b9; margin-top:25px; border-radius:4px;">
+      <strong>💡 Note:</strong> This theorem only applies to linear bilateral networks. It does not apply to circuits containing diodes, transistors, or other non-linear elements.
+    </div>
+  </div>
 </div>
 
 <script>
