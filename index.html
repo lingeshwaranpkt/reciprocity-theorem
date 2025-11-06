@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reciprocity Theorem - Fully Closed Circuit</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: #f9f9f9;
+  }
+  .container {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+  .circuit {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.1);
+  }
+  svg {
+    width: 100%;
+    max-width: 460px;
+  }
+  .controls {
+    text-align: center;
+    margin: 30px 0;
+  }
+  input {
+    padding: 8px;
+    font-size: 1rem;
+    width: 100px;
+  }
+  button {
+    padding: 8px 16px;
+    font-size: 1rem;
+    margin-left: 8px;
+    cursor: pointer;
+    background: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 4px;
+  }
+  button:hover {
+    background: #21618c;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  th, td {
+    border: 1px solid #999;
+    padding: 8px;
+    text-align: center;
+  }
+  th {
+    background: #e8f4fc;
+    font-weight: bold;
+  }
+  caption {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #2980b9;
+    font-size: 15px;
+  }
+  .res-label {
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .input-box {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <!-- Circuit 1 -->
+  <div class="circuit">
+    <figcaption style="text-align:center;font-weight:bold;margin-bottom:10px;">
+      Figure 2: Connection diagram-1 for reciprocity theorem
+    </figcaption>
+    <svg viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg">
+      <!-- Ground Left -->
+      <line x1="40" y1="110" x2="60" y2="110" stroke="#000" stroke-width="2"/>
+      <line x1="50" y1="110" x2="50" y2="130" stroke="#000" stroke-width="2"/>
+      <line x1="45" y1="130" x2="55" y2="130" stroke="#000" stroke-width="1.5"/>
+      <line x1="47" y1="125" x2="53" y2="125" stroke="#000" stroke-width="1"/>
+      
+      <!-- Vs -->
+      <circle cx="90" cy="110" r="22" fill="none" stroke="#e74c3c" stroke-width="3"/>
+      <text x="90" y="118" text-anchor="middle" fill="#e74c3c" font-weight="bold" font-size="16">Vs</text>
+      <line x1="68" y1="110" x2="40" y2="110" stroke="#000" stroke-width="2"/>
+      <line x1="112" y1="110" x2="140" y2="110" stroke="#000" stroke-width="2"/>
+      
+      <!-- 1kΩ (Horizontal Left) -->
+      <rect x="140" y="95" width="60" height="30" fill="none" stroke="#000" stroke-width="2"/>
+      <text x="170" y="113" text-anchor="middle" class="res-label">1kΩ</text>
+      <line x1="200" y1="110" x2="235" y2="110" stroke="#000" stroke-width="2"/>
+      
+      <!-- T-junction point -->
+      <circle cx="235" cy="110" r="3" fill="#000"/>
+      
+      <!-- 1kΩ (Vertical - forming the T) -->
+      <line x1="235" y1="110" x2="235" y2="140" stroke="#000" stroke-width="2"/>
+      <rect x="220" y="140" width="30" height="60" fill="none" stroke="#000" stroke-width="2"/>
+      <text x="235" y="173" text-anchor="middle" class="res-label">1kΩ</text>
+      <line x1="235" y1="200" x2="235" y2="220" stroke="#000" stroke-width="2"/>
+      
+      <!-- Ground bottom -->
+      <line x1="235" y1="220" x2="235" y2="230" stroke="#000" stroke-width="2"/>
+      <line x1="230" y1="230" x2="240" y2="230" stroke="#000" stroke-width="1.5"/>
+      <line x1="232" y1="233" x2="238" y2="233" stroke="#000" stroke-width="1"/>
+      
+      <!-- Continue horizontal line from T-junction -->
+      <line x1="235" y1="110" x2="270" y2="110" stroke="#000" stroke-width="2"/>
+      
+      <!-- 1kΩ (Horizontal Right) -->
+      <rect x="270" y="95" width="60" height="30" fill="none" stroke="#000" stroke-width="2"/>
+      <text x="300" y="113" text-anchor="middle" class="res-label">1kΩ</text>
+      <line x1="330" y1="110" x2="350" y2="110" stroke="#000" stroke-width="2"/>
+      
+      <!-- Ammeter -->
+      <circle cx="380" cy="110" r="22" fill="none" stroke="#27ae60" stroke-width="3"/>
+      <text x="380" y="118" text-anchor="middle" fill="#27ae60" font-weight="bold" font-size="16">A</text>
+      <line x1="350" y1="110" x2="358" y2="110" stroke="#000" stroke-width="2"/>
+      <line x1="402" y1="110" x2="380" y2="110" stroke="#000" stroke-width="2"/>
+      
+      <!-- Connect A down to bottom ground line -->
+      <line x1="380" y1="132" x2="380" y2="220" stroke="#000" stroke-width="2"/>
+      <circle cx="380" cy="220" r="3" fill="#000"/>
+      
+      <!-- Connect bottom ground line from middle resistor to A -->
+      <line x1="235" y1="220" x2="380" y2="220" stroke="#000" stroke-width="2"/>
+      
+      <!-- Connect bottom ground line from A to Vs -->
+      <line x1="380" y1="220" x2="90" y2="220" stroke="#000" stroke-width="2"/>
+      
+      <!-- Connect Vs down to bottom ground line -->
+      <line x1="90" y1="132" x2="90" y2="220" stroke="#000" stroke-width="2"/>
+      <circle cx="90" cy="220" r="3" fill="#000"/>
+      
+      <text x="235" y="250" text-anchor="middle" font-size="14" fill="#555">Common Ground (Closed Loop)</text>
+    </svg>
+    <table id="table1">
+      <caption>Table 1</caption>
+      <thead>
+        <tr>
+          <th>Input Voltage<br>Vs (Volt)</th>
+          <th>Is (mA)<br>Practical</th>
+          <th>Is (mA)<br>Theoretical</th>
+          <th>Req (kΩ)<br>Practical</th>
+          <th>Req (kΩ)<br>Theoretical</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>10.0</td><td>2.400</td><td>2.400</td><td>4.167</td><td>4.167</td></tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <!-- Circuit 2 -->
+  <div class="circuit">
+    <figcaption style="text-align:center;font-weight:bold;margin-bottom:10px;">
+      Figure 3: Connection diagram-2 for reciprocity theorem
+    </figcaption>
+    <svg viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg">
+      <!-- Ground Left -->
+      <line x1="40" y1="110" x2="60" y2="110" stroke="#000" stroke-width="2"/>
+      <line x1="50" y1="110" x2="50" y2="130" stroke="#000" stroke-width="2"/>
+      <line x1="45" y1="130" x2="55" y2="130" stroke="#000" stroke-width="1.5"/>
+      <line x1="47" y1="125" x2="53" y2="125" stroke="#000" stroke-width="1"/>
+      
+      <!-- Ammeter -->
+      <circle cx="90" cy="110" r="22" fill="none" stroke="#27ae60" stroke-width="3"/>
+      <text x="90" y="118" text-anchor="middle" fill="#27ae60" font-weight="bold" font-size="16">A</text>
+      <line x1="68" y1="110" x2="40" y2="110" stroke="#000" stroke-width="2"/>
+      <line x1="112" y1="110" x2="140" y2="110" stroke="#000" stroke-width="2"/>
+      
+      <!-- 1kΩ (Horizontal Left) -->
+      <rect x="140" y="95" width="60" height="30" fill="none" stroke="#000" stroke-width="2"/>
+      <text x="170" y="113" text-anchor="middle" class="res-label">1kΩ</text>
+      <line x1="200" y1="110" x2="235" y2="110" stroke="#000" stroke-width="2"/>
+      
+      <!-- T-junction point -->
+      <circle cx="235" cy="110" r="3" fill="#000"/>
+      
+      <!-- 1kΩ (Vertical - forming the T) -->
+      <line x1="235" y1="110" x2="235" y2="140" stroke="#000" stroke-width="2"/>
+      <rect x="220" y="140" width="30" height="60" fill="none" stroke="#000" stroke-width="2"/>
+      <text x="235" y="173" text-anchor="middle" class="res-label">1kΩ</text>
+      <line x1="235" y1="200" x2="235" y2="220" stroke="#000" stroke-width="2"/>
+      
+      <!-- Ground bottom -->
+      <line x1="235" y1="220" x2="235" y2="230" stroke="#000" stroke-width="2"/>
+      <line x1="230" y1="230" x2="240" y2="230" stroke="#000" stroke-width="1.5"/>
+      <line x1="232" y1="233" x2="238" y2="233" stroke="#000" stroke-width="1"/>
+      
+      <!-- Continue horizontal line from T-junction -->
+      <line x1="235" y1="110" x2="270" y2="110" stroke="#000" stroke-width="2"/>
+      
+      <!-- 1kΩ (Horizontal Right) -->
+      <rect x="270" y="95" width="60" height="30" fill="none" stroke="#000" stroke-width="2"/>
+      <text x="300" y="113" text-anchor="middle" class="res-label">1kΩ</text>
+      <line x1="330" y1="110" x2="350" y2="110" stroke="#000" stroke-width="2"/>
+      
+      <!-- Vs -->
+      <circle cx="380" cy="110" r="22" fill="none" stroke="#e74c3c" stroke-width="3"/>
+      <text x="380" y="118" text-anchor="middle" fill="#e74c3c" font-weight="bold" font-size="16">Vs</text>
+      <line x1="350" y1="110" x2="358" y2="110" stroke="#000" stroke-width="2"/>
+      <line x1="402" y1="110" x2="380" y2="110" stroke="#000" stroke-width="2"/>
+      
+      <!-- Connect Vs down to bottom ground line -->
+      <line x1="380" y1="132" x2="380" y2="220" stroke="#000" stroke-width="2"/>
+      <circle cx="380" cy="220" r="3" fill="#000"/>
+      
+      <!-- Connect bottom ground line from middle resistor to Vs -->
+      <line x1="235" y1="220" x2="380" y2="220" stroke="#000" stroke-width="2"/>
+      
+      <!-- Connect bottom ground line from Vs to A -->
+      <line x1="380" y1="220" x2="90" y2="220" stroke="#000" stroke-width="2"/>
+      
+      <!-- Connect A down to bottom ground line -->
+      <line x1="90" y1="132" x2="90" y2="220" stroke="#000" stroke-width="2"/>
+      <circle cx="90" cy="220" r="3" fill="#000"/>
+      
+      <text x="235" y="250" text-anchor="middle" font-size="14" fill="#555">Common Ground (Closed Loop)</text>
+    </svg>
+    <table id="table2">
+      <caption>Table 2</caption>
+      <thead>
+        <tr>
+          <th>Input Voltage<br>Vs (Volt)</th>
+          <th>Is (mA)<br>Practical</th>
+          <th>Is (mA)<br>Theoretical</th>
+          <th>Req (kΩ)<br>Practical</th>
+          <th>Req (kΩ)<br>Theoretical</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>10.0</td><td>2.400</td><td>2.400</td><td>4.167</td><td>4.167</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="controls">
+  <label for="vs">Input Voltage (Vs) (Volt): </label>
+  <input type="number" id="vs" step="0.1" value="10" class="input-box">
+  <button onclick="calculate()">Calculate</button>
+</div>
+
+<script>
+// Based on theoretical calculations
+// Is = 0.24 × Vs (mA)
+// Req = Vs / Is = 4.167 kΩ
+const Req_kOhm = 4.167;
+
+function calculate() {
+  const Vs = parseFloat(document.getElementById('vs').value) || 0;
+  const Is_mA = (0.24 * Vs).toFixed(3);
+  
+  document.querySelectorAll('tbody tr').forEach(row => {
+    row.cells[0].textContent = Vs.toFixed(1);
+    row.cells[1].textContent = Is_mA;
+    row.cells[2].textContent = Is_mA;
+    row.cells[3].textContent = Req_kOhm.toFixed(3);
+    row.cells[4].textContent = Req_kOhm.toFixed(3);
+  });
+}
+
+calculate();
+</script>
+</body>
+</html>
